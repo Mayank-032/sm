@@ -8,7 +8,7 @@ var signupRoute = require("./controllers/signup.js");
 var app = express();
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 // Database connection
 mongoose.connect(process.env.DB_CONNECTION_STRING);
