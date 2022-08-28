@@ -7,12 +7,17 @@ var signinRoute = require("./controllers/signin.js");
 var signupRoute = require("./controllers/signup.js");
 var logoutRoute = require("./controllers/logout")
 var auth = require("./middleware/auth")
+var cors = require("cors")
 
 var app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true })); 
 app.use(cookieParser());
+app.use(cors({
+  origin: '*',
+  methods: ['GET','POST','DELETE','UPDATE','PUT','PATCH']
+}))
 
 // Database connection
 mongoose.connect(process.env.DB_CONNECTION_STRING);
